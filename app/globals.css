@@ -1,38 +1,98 @@
 @import "tailwindcss";
 
+/* ================================================================
+   Roast Tape Coffee Co. — design tokens
+   Palette is intentionally free of pure black, green, and purple.
+   ================================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* Raw palette: exposed as CSS variables so canvas/SVG can read them. */
+  --coffee-espresso: #28160e; /* Dark base, replaces black */
+  --coffee-mocha: #5c3826; /* Brand primary */
+  --coffee-cherry: #b33927; /* Coffee cherry accent */
+  --coffee-tape: #d97736; /* Kraft tape / terracotta */
+  --coffee-toffee: #e5a85c; /* Amber caramel highlight */
+  --coffee-oat: #f3e8d8; /* Card & raw paper surface */
+  --coffee-foam: #faf5ee; /* Warm latte canvas */
+  --coffee-border: #dfd1bf; /* Kraft paperboard border */
+  --coffee-cardboard: #ebdbc8; /* Shipping box footer */
+
+  /* Semantic aliases */
+  --background: var(--coffee-foam);
+  --foreground: var(--coffee-espresso);
 }
 
 @theme inline {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-coffee-espresso: var(--coffee-espresso);
+  --color-coffee-mocha: var(--coffee-mocha);
+  --color-coffee-cherry: var(--coffee-cherry);
+  --color-coffee-tape: var(--coffee-tape);
+  --color-coffee-toffee: var(--coffee-toffee);
+  --color-coffee-oat: var(--coffee-oat);
+  --color-coffee-foam: var(--coffee-foam);
+  --color-coffee-border: var(--coffee-border);
+  --color-coffee-cardboard: var(--coffee-cardboard);
+
+  /* Typography */
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-space-mono), ui-monospace, "SFMono-Regular", monospace;
   --font-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman",
     serif;
+
+  /* Elevation */
+  --shadow-paper: 4px 6px 0px 0px rgb(40 22 14 / 0.15);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  line-height: 1.6;
-}
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  }
+
+  ::selection {
+    background-color: var(--coffee-tape);
+    color: var(--coffee-espresso);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--coffee-cherry);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
