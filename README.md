@@ -40,7 +40,7 @@ app/
 
 - [x] Fase 1.1 — Inisialisasi proyek & dependencies
 - [x] Fase 1.2 — Konfigurasi font & tipografi
-- [ ] Fase 1.3 — Token warna palet kopi
+- [x] Fase 1.3 — Token warna palet kopi
 - [ ] Fase 2 — UI primitives (`TapeStrip`, `PaperCard`, `CuppingTag`)
 - [ ] Fase 3 — Hero & draw-your-own tape canvas
 - [ ] Fase 4 — Wavy marquee & GSAP 3D scroll narrative
