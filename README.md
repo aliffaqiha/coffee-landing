@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Roast Tape Coffee Co. — Interactive Landing Page
 
-## Getting Started
+Landing page interaktif untuk brand specialty coffee **Roast Tape Coffee Co.**, dibangun dengan estetika lakban kraft, kolase kertas, dan segel robek.
 
-First, run the development server:
+Dokumen acuan:
+
+- [`PRD_ROAST_TAPE_COFFEE_UI.md`](./PRD_ROAST_TAPE_COFFEE_UI.md) — visi produk, design system, dan arsitektur halaman.
+- [`IMPLEMENTATION_STEPS_ROAST_TAPE_COFFEE.md`](./IMPLEMENTATION_STEPS_ROAST_TAPE_COFFEE.md) — rencana implementasi 8 fase.
+
+## Tech Stack
+
+| Area | Teknologi |
+| :--- | :--- |
+| Framework | Next.js 15 (App Router) + React 19 + TypeScript |
+| Styling | Tailwind CSS v4 (`@theme` tokens) |
+| Motion | Framer Motion, GSAP + ScrollTrigger (`@gsap/react`) |
+| Icons | Lucide React |
+| Feedback | canvas-confetti |
+| Fonts | Fraunces (display), Space Mono (metadata), Plus Jakarta Sans (body) |
+
+## Menjalankan Proyek
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint     # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Struktur
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+├── layout.tsx     # Root layout, font loading, metadata
+├── page.tsx       # Landing page composition
+└── globals.css    # Tailwind import, theme tokens, base styles
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Roadmap
 
-## Learn More
+- [x] Fase 1.1 — Inisialisasi proyek & dependencies
+- [x] Fase 1.2 — Konfigurasi font & tipografi
+- [ ] Fase 1.3 — Token warna palet kopi
+- [ ] Fase 2 — UI primitives (`TapeStrip`, `PaperCard`, `CuppingTag`)
+- [ ] Fase 3 — Hero & draw-your-own tape canvas
+- [ ] Fase 4 — Wavy marquee & GSAP 3D scroll narrative
+- [ ] Fase 5 — Peelable tape voucher
+- [ ] Fase 6 — Product showcase & scrapbook wall
+- [ ] Fase 7 — Roastery footer & finishing
+- [ ] Fase 8 — QA, accessibility & performance audit
 
-To learn more about Next.js, take a look at the following resources:
+## Konvensi Commit
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Riwayat dijaga tetap kecil dan bertahap agar setiap progres mudah ditelusuri dan di-review. Format pesan mengikuti [Conventional Commits](https://www.conventionalcommits.org/):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+<type>(<scope>): <ringkasan singkat>
 
-## Deploy on Vercel
+<penjelasan opsional: alasan / dampak perubahan>
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Type | Penggunaan |
+| :--- | :--- |
+| `feat` | Fitur atau komponen UI baru |
+| `fix` | Perbaikan bug |
+| `style` | Perubahan visual/CSS tanpa mengubah perilaku |
+| `refactor` | Restrukturisasi kode tanpa perubahan perilaku |
+| `perf` | Optimasi performa |
+| `docs` | Dokumentasi (PRD, roadmap, README) |
+| `build` | Dependencies, konfigurasi build/tooling |
+| `chore` | Pemeliharaan umum |
+| `test` | Penambahan atau perbaikan test |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Panduan singkat:
+
+1. Satu commit = satu unit perubahan yang logis (mis. satu komponen, satu fase kecil).
+2. Jangan mencampur perubahan formatting masif dengan perubahan fitur.
+3. Sertakan alasan pada body commit jika perubahan tidak self-explanatory.
+4. Gunakan scope yang konsisten: `theme`, `hero`, `tape`, `products`, `footer`, `a11y`.
+
+## Design Guardrails
+
+- Dilarang memakai hitam murni (`#000000`), hijau, atau ungu di seluruh UI.
+- Warna dasar: `#FAF5EE` (canvas), `#F3E8D8` (card), `#28160E` (teks).
+- Semua animasi wajib menghormati `prefers-reduced-motion`.
+- Target: Lighthouse Performance ≥ 85, Accessibility ≥ 95.
