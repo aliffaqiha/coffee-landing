@@ -1,103 +1,73 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="relative min-h-screen overflow-hidden bg-coffee-foam text-coffee-espresso">
+      {/* Decorative kraft tape across the top */}
+      <div className="pointer-events-none absolute -left-8 top-10 w-[120%] -rotate-2 bg-coffee-tape/90 py-2">
+        <p className="font-mono text-[11px] tracking-[0.3em] text-coffee-espresso">
+          {"★ FRESH ROAST ★ 100% ARABICA ★ DIRECT TRADE ★ ".repeat(4)}
+        </p>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+      <section className="mx-auto flex w-full max-w-5xl flex-col gap-10 px-6 pb-16 pt-36 sm:px-10">
+        <p className="font-mono text-xs uppercase tracking-[0.25em] text-coffee-mocha">
+          Roast Tape Coffee Co. — Small batch roastery
+        </p>
+
+        <h1 className="max-w-3xl text-balance font-display text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
+          Not your ordinary caffeine fix.
+        </h1>
+
+        <p className="max-w-xl text-base text-coffee-mocha sm:text-lg">
+          Direct trade beans, roasted light-to-medium for clarity, sealed with
+          tape and shipped within 48 hours. Built for home brewers who read
+          cupping notes like liner notes.
+        </p>
+
+        <div className="flex flex-wrap items-center gap-4">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#roasts"
+            className="rounded-sm bg-coffee-mocha px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-coffee-foam shadow-paper transition-transform hover:-translate-y-0.5"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            Claim today&apos;s roast
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#notes"
+            className="rounded-sm border-2 border-coffee-tape px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-coffee-mocha transition-colors hover:bg-coffee-tape/10"
           >
-            Read our docs
+            Explore tasting notes
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+        {/* Palette specimen — remove once real sections land */}
+        <div className="mt-8 border-t border-coffee-border pt-8">
+          <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.25em] text-coffee-mocha">
+            Design tokens — Phase 1.3
+          </p>
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {[
+              ["espresso", "bg-coffee-espresso", "text-coffee-foam"],
+              ["mocha", "bg-coffee-mocha", "text-coffee-foam"],
+              ["cherry", "bg-coffee-cherry", "text-coffee-foam"],
+              ["tape", "bg-coffee-tape", "text-coffee-espresso"],
+              ["toffee", "bg-coffee-toffee", "text-coffee-espresso"],
+              ["oat", "bg-coffee-oat", "text-coffee-espresso"],
+              ["border", "bg-coffee-border", "text-coffee-espresso"],
+              ["cardboard", "bg-coffee-cardboard", "text-coffee-espresso"],
+            ].map(([name, bg, fg]) => (
+              <li
+                key={name}
+                className={`${bg} ${fg} flex h-20 items-end rounded-sm border border-coffee-border/60 p-3 font-mono text-[10px] uppercase tracking-[0.15em]`}
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <footer className="border-t border-coffee-border px-6 py-6 font-mono text-[11px] uppercase tracking-[0.25em] text-coffee-mocha sm:px-10">
+        Calibrating grind size… — 93°c — 1:16 ratio
       </footer>
-    </div>
+    </main>
   );
 }
